@@ -1,0 +1,10 @@
+{ 2021-11-01 22:39:08,876 | root | WARNING } : Connection Lost
+{ 2021-11-01 22:39:08,876 | root | ERROR } : TypeError please use ValueError
+{ 2021-11-01 22:39:08,876 | root | CRITICAL } : Critical Error: Start menu and Cortana aren't working.
+{ 2021-11-01 22:39:08,876 | root | Level 35 } : This is log error thank you.
+{ 2021-11-01 22:39:08,876 | foo | DEBUG } : Detected some bug please fix it
+{ 2021-11-01 22:39:08,876 | foo | INFO } : Server is in modify please wait
+{ 2021-11-01 22:39:08,876 | foo | WARNING } : Connection Lost
+{ 2021-11-01 22:39:08,876 | foo | ERROR } : TypeError please use ValueError
+{ 2021-11-01 22:39:08,876 | foo | CRITICAL } : Critical Error: Start menu and Cortana aren't working.
+{ 2021-11-01 22:39:08,876 | foo | Level 35 } : This is log error thank you.

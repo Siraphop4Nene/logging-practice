@@ -9,22 +9,19 @@ For details, see: https://docs.python.org/3/library/logging.html
 """
 import logging
 
+
 def logging_test(logger):
     """Log messages using each of the standard logging levels 
        plus 1 custom log level.
-    """ 
-    # TODO write a log message that uses each of these log levels.
-    #  Your log message should be an example of the sort of information 
-    #  you would log at that level:
-    #
-    # debug
-    # info
-    # warning
-    # level = logging.WARN + 5 (custom log level between WARN and ERROR)
-    # error
-    # critical or fatal
+    """
+
+    logger.debug("Detected some bug please fix it")
+    logger.info("Server is in modify please wait")
+    logger.warning("Connection Lost")
+    logger.error("TypeError please use ValueError")
+    logger.critical("Critical Error: Start menu and Cortana aren't working.")
     level = logging.WARN + 5  # custom log level
-    print("You forgot to write logging_test")
+    logger.log(level, "This is log error thank you.")
 
 
 def simple_config():
@@ -51,17 +48,13 @@ def simple_config():
 
 def my_config():
     """Write your own logging configuration."""
-    # TODO write your own logging configuration
-    #      specify a log file, threshold level, format, and append mode
-    pass
+    FORMAT = '{ %(asctime)s | %(name)s | %(levelname)s } : %(message)s'
+    logging.basicConfig(format=FORMAT, level=logging.NOTSET, filemode='w', filename="log_text")
 
 
 if __name__ == "__main__":
-    #
-    # TODO Configure logging using one of these choices:
-
     # 1. Call basicConfig with the default settings
-    logging.basicConfig()
+    # logging.basicConfig()
 
     # 2. Call simple_config to set the format of log messages.
     #    Comment out the above call (#1) to basicConfig for this.
@@ -70,14 +63,13 @@ if __name__ == "__main__":
     # 3. my_config() write your own logging configuration as
     #    described in the assignment. 
     #    Comment out the above calls to simple_config and basicConfig.
-    # my_config() 
+    my_config()
 
     # Log some messages to the root logger using different logging levels.
     logger = logging.getLogger()
-    print("Logging to ", str(logger))
+    logger.setLevel(logging.WARN)
     logging_test(logger)
 
-
-    # TODO create a named logger, set a a custom log threshold,
-    #       and call logging_test again with your named logger.
-
+    mylogger = logging.getLogger("foo")
+    mylogger.setLevel(logging.DEBUG)  # log everything
+    logging_test(mylogger)
